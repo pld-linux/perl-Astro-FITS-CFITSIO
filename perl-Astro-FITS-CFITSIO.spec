@@ -3,8 +3,8 @@
 %bcond_without	tests	# don't perform "make test"
 #
 %include	/usr/lib/rpm/macros.perl
-%define	pdir	Astro
-%define	pnam	FITS-CFITSIO
+%define		pdir	Astro
+%define		pnam	FITS-CFITSIO
 Summary:	Astro::FITS::CFITSIO - Perl extension for using the cfitsio library
 Summary(pl):	Astro::FITS::CFITSIO - rozszerzenie Perla do korzystania z biblioteki cfitsio
 Name:		perl-Astro-FITS-CFITSIO
