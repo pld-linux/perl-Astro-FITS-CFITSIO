@@ -8,13 +8,13 @@
 Summary:	Astro::FITS::CFITSIO - Perl extension for using the cfitsio library
 Summary(pl):	Astro::FITS::CFITSIO - rozszerzenie Perla do korzystania z biblioteki cfitsio
 Name:		perl-Astro-FITS-CFITSIO
-Version:	1.02
+Version:	1.03
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	8d9a6a448353c15e8c845041ebe54155
+# Source0-md5:	97524288840884f27e905026c44c6988
 BuildRequires:	cfitsio-devel >= 2.470
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
