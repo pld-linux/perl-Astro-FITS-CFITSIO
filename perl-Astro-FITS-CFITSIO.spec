@@ -88,7 +88,7 @@ Astro::FITS::CFITSIO Perl Ä£¿é
 
 %build
 %{__perl} Makefile.PL \
-	INSTALLDIRS=vendor 
+	INSTALLDIRS=vendor
 %{__make}
 #%%{__make} test
 
