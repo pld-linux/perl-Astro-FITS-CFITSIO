@@ -20,11 +20,11 @@ Summary(uk):	Модуль для Perl Astro::FITS::CFITSIO
 Summary(zh_CN):	Astro::FITS::CFITSIO Perl дё©И
 Name:		perl-Astro-FITS-CFITSIO
 Version:	1.01
-Release:	1
+Release:	2
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.0.2-104
 BuildRequires:	perl >= 5.6
 BuildRequires:	cfitsio-devel >= 2.400
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
