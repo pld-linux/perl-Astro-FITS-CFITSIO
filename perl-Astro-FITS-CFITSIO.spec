@@ -1,87 +1,52 @@
+#
+# Conditional build:
+%bcond_without	tests	# don't perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define		pdir	Astro
 %define		pnam	FITS-CFITSIO
-Summary:	Astro::FITS::CFITSIO Perl module
-Summary(cs):	Modul Astro::FITS::CFITSIO pro Perl
-Summary(da):	Perlmodul Astro::FITS::CFITSIO
-Summary(de):	Astro::FITS::CFITSIO Perl Modul
-Summary(es):	Módulo de Perl Astro::FITS::CFITSIO
-Summary(fr):	Module Perl Astro::FITS::CFITSIO
-Summary(it):	Modulo di Perl Astro::FITS::CFITSIO
-Summary(ja):	Astro::FITS::CFITSIO Perl ¥â¥¸¥å¡¼¥ë
-Summary(ko):	Astro::FITS::CFITSIO ÆÞ ¸ðÁÙ
-Summary(no):	Perlmodul Astro::FITS::CFITSIO
-Summary(pl):	Modu³ Perla Astro::FITS::CFITSIO
-Summary(pt):	Módulo de Perl Astro::FITS::CFITSIO
-Summary(pt_BR):	Módulo Perl Astro::FITS::CFITSIO
-Summary(ru):	íÏÄÕÌØ ÄÌÑ Perl Astro::FITS::CFITSIO
-Summary(sv):	Astro::FITS::CFITSIO Perlmodul
-Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl Astro::FITS::CFITSIO
-Summary(zh_CN):	Astro::FITS::CFITSIO Perl Ä£¿é
+Summary:	Astro::FITS::CFITSIO - Perl extension for using the cfitsio library
+Summary(pl):	Astro::FITS::CFITSIO - rozszerzenie Perla do korzystania z biblioteki cfitsio
 Name:		perl-Astro-FITS-CFITSIO
 Version:	1.01
-Release:	2
-License:	GPL/Artistic
+Release:	3
+# same as perl
+License:	GPL or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	75f7757350c9fc1a3775811e111a74d4
-BuildRequires:	rpm-perlprov >= 4.1-13
-BuildRequires:	perl-devel >= 5.6
 BuildRequires:	cfitsio-devel >= 2.400
+BuildRequires:	perl-devel >= 5.8.0
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Astro::FITS::CFITSIO is a Perl interface to William Pence's cfitsio
 subroutine library.
+ 
+This module attempts to provide a wrapper for nearly every cfitsio
+routine, while retaining as much cfitsio behavior as possible. As
+such, one should be aware that it is still somewhat low-level, in the
+sense that handing an array which is not the correct size to a routine
+like fits_write_img() may cause SIGSEGVs.
 
-%description -l cs
-Modul Astro::FITS::CFITSIO pro Perl.
-
-%description -l da
-Perlmodul Astro::FITS::CFITSIO.
-
-%description -l de
-Astro::FITS::CFITSIO Perl Modul.
-
-%description -l es
-Módulo de Perl Astro::FITS::CFITSIO.
-
-%description -l fr
-Module Perl Astro::FITS::CFITSIO.
-
-%description -l it
-Modulo di Perl Astro::FITS::CFITSIO.
-
-%description -l ja
-Astro::FITS::CFITSIO Perl ¥â¥¸¥å¡¼¥ë
-
-%description -l ko
-Astro::FITS::CFITSIO ÆÞ ¸ðÁÙ.
-
-%description -l no
-Perlmodul Astro::FITS::CFITSIO.
+The goal is to eventually use these routines to build a more Perl-like
+interface to many common tasks such as reading and writing of images
+and ASCII and binary tables.
 
 %description -l pl
 Astro::FITS::CFITSIO jest perlowym interfejsem do biblioteki cfitsio
 Williama Pence'a.
 
-%description -l pt
-Módulo de Perl Astro::FITS::CFITSIO.
+Ten modu³ jest prób± dostarczenia obudowania dla prawie wszystkich
+funkcji cfitsio przy zachowaniu mo¿liwie najbli¿szym cfitsio. Przez to
+trzeba mieæ na uwadze, ¿e dostêp jest nieco niskopoziomowy, w tym
+sensie, ¿e przekazanie tablicy o z³ym rozmiarze do funkcji typu
+fits_write_img() mo¿e powodowaæ SIGSEGV.
 
-%description -l pt_BR
-Módulo Perl Astro::FITS::CFITSIO.
-
-%description -l ru
-íÏÄÕÌØ ÄÌÑ Perl Astro::FITS::CFITSIO.
-
-%description -l sv
-Astro::FITS::CFITSIO Perlmodul.
-
-%description -l uk
-íÏÄÕÌØ ÄÌÑ Perl Astro::FITS::CFITSIO.
-
-%description -l zh_CN
-Astro::FITS::CFITSIO Perl Ä£¿é
+Celem autora jest ewentualne wykorzystanie tych funkcji to stworzenia
+bardziej perlowego interfejsu do wielu ogólnych zadañ, takich jak
+odczyt i zapis obrazów oraz tablic binarnych i ASCII.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
@@ -90,13 +55,15 @@ Astro::FITS::CFITSIO Perl Ä£¿é
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make}
-#%%{__make} test
+
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
