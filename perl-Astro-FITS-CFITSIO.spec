@@ -15,10 +15,10 @@ License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	97524288840884f27e905026c44c6988
-BuildRequires:	cfitsio-devel >= 2.470
+BuildRequires:	cfitsio-devel >= 2.500
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-Requires:	cfitsio >= 2.470
+Requires:	cfitsio >= 2.500
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
