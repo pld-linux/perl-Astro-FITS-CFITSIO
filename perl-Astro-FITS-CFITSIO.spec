@@ -20,11 +20,11 @@ Summary(uk):	Модуль для Perl Astro::FITS::CFITSIO
 Summary(zh_CN):	Astro::FITS::CFITSIO Perl дё©И
 Name:		perl-Astro-FITS-CFITSIO
 Version:	1.01
-Release:	1
+Release:	2
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-BuildRequires:	rpm-perlprov >= 3.0.3-16
+BuildRequires:	rpm-perlprov >= 4.1-13
 BuildRequires:	perl >= 5.6
 BuildRequires:	cfitsio-devel >= 2.400
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -86,7 +86,8 @@ Astro::FITS::CFITSIO Perl дё©И
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Makefile.PL
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor 
 %{__make}
 #%%{__make} test
 
@@ -105,12 +106,12 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc ChangeLog LICENSE NOTES README TODO announce
 
-%{perl_sitearch}/Astro/FITS
-%dir %{perl_sitearch}/auto/Astro/FITS
-%dir %{perl_sitearch}/auto/Astro/FITS/CFITSIO
-%{perl_sitearch}/auto/Astro/FITS/CFITSIO/CFITSIO.bs
-%{perl_sitearch}/auto/Astro/FITS/CFITSIO/autosplit.ix
-%attr(755,root,root) %{perl_sitearch}/auto/Astro/FITS/CFITSIO/CFITSIO.so
+%{perl_vendorarch}/Astro/FITS
+%dir %{perl_vendorarch}/auto/Astro/FITS
+%dir %{perl_vendorarch}/auto/Astro/FITS/CFITSIO
+%{perl_vendorarch}/auto/Astro/FITS/CFITSIO/CFITSIO.bs
+%{perl_vendorarch}/auto/Astro/FITS/CFITSIO/autosplit.ix
+%attr(755,root,root) %{perl_vendorarch}/auto/Astro/FITS/CFITSIO/CFITSIO.so
 %{_mandir}/man3/*
 %dir %{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.pl
