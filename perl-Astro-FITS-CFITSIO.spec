@@ -11,7 +11,7 @@ Name:		perl-Astro-FITS-CFITSIO
 Version:	1.01
 Release:	3
 # same as perl
-License:	GPL or Artistic
+License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	75f7757350c9fc1a3775811e111a74d4
