@@ -20,7 +20,7 @@ Summary(uk):	íÏÄÕÌØ ÄÌÑ Perl Astro::FITS::CFITSIO
 Summary(zh_CN):	Astro::FITS::CFITSIO Perl Ä£¿é
 Name:		perl-Astro-FITS-CFITSIO
 Version:	1.00
-Release:	1
+Release:	2
 License:	GPL/Artistic
 Group:		Development/Languages/Perl
 Source0:	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
@@ -62,8 +62,8 @@ Astro::FITS::CFITSIO ÆÞ ¸ðÁÙ.
 Perlmodul Astro::FITS::CFITSIO.
 
 %description -l pl
-Astro::FITS::CFITSIO jest perlowym interfejsem do biblioteki
-cfitsio Williama Pence'a.
+Astro::FITS::CFITSIO jest perlowym interfejsem do biblioteki cfitsio
+Williama Pence'a.
 
 %description -l pt
 Módulo de Perl Astro::FITS::CFITSIO.
@@ -105,10 +105,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog LICENSE NOTES README TODO announce
-
-# move these to perl ?
-%dir %{perl_sitearch}/Astro
-%dir %{perl_sitearch}/auto/Astro
 
 %{perl_sitearch}/Astro/FITS
 %dir %{perl_sitearch}/auto/Astro/FITS
