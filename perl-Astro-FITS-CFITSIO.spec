@@ -54,7 +54,7 @@ odczyt i zapis obrazów oraz tablic binarnych i ASCII.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-export CFITSIO=%{_prefix}
+export CFITSIO=/usr
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make}
