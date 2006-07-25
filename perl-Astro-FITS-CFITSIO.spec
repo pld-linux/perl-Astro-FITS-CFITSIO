@@ -8,13 +8,14 @@
 Summary:	Astro::FITS::CFITSIO - Perl extension for using the cfitsio library
 Summary(pl):	Astro::FITS::CFITSIO - rozszerzenie Perla do korzystania z biblioteki cfitsio
 Name:		perl-Astro-FITS-CFITSIO
-Version:	1.03
+Version:	1.05
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	97524288840884f27e905026c44c6988
+# Source0-md5:	6b9e0b765f332b124ccd918ac1763cef
+URL:		http://search.cpan.org/dist/Astro-FITS-CFITSIO/
 BuildRequires:	cfitsio-devel >= 2.500
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
@@ -24,7 +25,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Astro::FITS::CFITSIO is a Perl interface to William Pence's cfitsio
 subroutine library.
- 
+
 This module attempts to provide a wrapper for nearly every cfitsio
 routine, while retaining as much cfitsio behavior as possible. As
 such, one should be aware that it is still somewhat low-level, in the
@@ -53,6 +54,7 @@ odczyt i zapis obrazów oraz tablic binarnych i ASCII.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
+export CFITSIO=%{_prefix}
 %{__perl} Makefile.PL \
 	INSTALLDIRS=vendor
 %{__make}
