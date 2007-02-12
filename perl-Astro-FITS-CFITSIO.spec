@@ -6,7 +6,7 @@
 %define		pdir	Astro
 %define		pnam	FITS-CFITSIO
 Summary:	Astro::FITS::CFITSIO - Perl extension for using the cfitsio library
-Summary(pl):	Astro::FITS::CFITSIO - rozszerzenie Perla do korzystania z biblioteki cfitsio
+Summary(pl.UTF-8):   Astro::FITS::CFITSIO - rozszerzenie Perla do korzystania z biblioteki cfitsio
 Name:		perl-Astro-FITS-CFITSIO
 Version:	1.05
 Release:	1
@@ -36,19 +36,19 @@ The goal is to eventually use these routines to build a more Perl-like
 interface to many common tasks such as reading and writing of images
 and ASCII and binary tables.
 
-%description -l pl
+%description -l pl.UTF-8
 Astro::FITS::CFITSIO jest perlowym interfejsem do biblioteki cfitsio
 Williama Pence'a.
 
-Ten modu³ jest prób± dostarczenia obudowania dla prawie wszystkich
-funkcji cfitsio przy zachowaniu mo¿liwie najbli¿szym cfitsio. Przez to
-trzeba mieæ na uwadze, ¿e dostêp jest nieco niskopoziomowy, w tym
-sensie, ¿e przekazanie tablicy o z³ym rozmiarze do funkcji typu
-fits_write_img() mo¿e powodowaæ SIGSEGV.
+Ten moduÅ‚ jest prÃ³bÄ… dostarczenia obudowania dla prawie wszystkich
+funkcji cfitsio przy zachowaniu moÅ¼liwie najbliÅ¼szym cfitsio. Przez to
+trzeba mieÄ‡ na uwadze, Å¼e dostÄ™p jest nieco niskopoziomowy, w tym
+sensie, Å¼e przekazanie tablicy o zÅ‚ym rozmiarze do funkcji typu
+fits_write_img() moÅ¼e powodowaÄ‡ SIGSEGV.
 
 Celem autora jest ewentualne wykorzystanie tych funkcji to stworzenia
-bardziej perlowego interfejsu do wielu ogólnych zadañ, takich jak
-odczyt i zapis obrazów oraz tablic binarnych i ASCII.
+bardziej perlowego interfejsu do wielu ogÃ³lnych zadaÅ„, takich jak
+odczyt i zapis obrazÃ³w oraz tablic binarnych i ASCII.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
