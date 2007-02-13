@@ -6,7 +6,7 @@
 %define		pdir	Astro
 %define		pnam	FITS-CFITSIO
 Summary:	Astro::FITS::CFITSIO - Perl extension for using the cfitsio library
-Summary(pl.UTF-8):   Astro::FITS::CFITSIO - rozszerzenie Perla do korzystania z biblioteki cfitsio
+Summary(pl.UTF-8):	Astro::FITS::CFITSIO - rozszerzenie Perla do korzystania z biblioteki cfitsio
 Name:		perl-Astro-FITS-CFITSIO
 Version:	1.05
 Release:	1
