@@ -17,6 +17,7 @@ Source0:	http://www.cpan.org/modules/by-module/%{pdir}/%{pdir}-%{pnam}-%{version
 # Source0-md5:	90a933310d986f32c953cb73caf58bf3
 URL:		http://search.cpan.org/dist/Astro-FITS-CFITSIO/
 BuildRequires:	cfitsio-devel >= 2.500
+BuildRequires:	perl-ExtUtils-PkgConfig
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
 Requires:	cfitsio >= 2.500
@@ -76,14 +77,13 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc ChangeLog NOTES README TODO
-
 %{perl_vendorarch}/Astro/FITS
 %dir %{perl_vendorarch}/auto/Astro/FITS
 %dir %{perl_vendorarch}/auto/Astro/FITS/CFITSIO
 %{perl_vendorarch}/auto/Astro/FITS/CFITSIO/CFITSIO.bs
 %{perl_vendorarch}/auto/Astro/FITS/CFITSIO/autosplit.ix
 %attr(755,root,root) %{perl_vendorarch}/auto/Astro/FITS/CFITSIO/CFITSIO.so
-%{_mandir}/man3/*
+%{_mandir}/man3/Astro::FITS::CFITSIO.3pm*
 %dir %{_examplesdir}/%{name}-%{version}
 %attr(755,root,root) %{_examplesdir}/%{name}-%{version}/*.pl
 %{_examplesdir}/%{name}-%{version}/INDEX
