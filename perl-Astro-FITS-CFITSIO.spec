@@ -80,7 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %{perl_vendorarch}/Astro/FITS
 %dir %{perl_vendorarch}/auto/Astro/FITS
 %dir %{perl_vendorarch}/auto/Astro/FITS/CFITSIO
-%{perl_vendorarch}/auto/Astro/FITS/CFITSIO/CFITSIO.bs
 %{perl_vendorarch}/auto/Astro/FITS/CFITSIO/autosplit.ix
 %attr(755,root,root) %{perl_vendorarch}/auto/Astro/FITS/CFITSIO/CFITSIO.so
 %{_mandir}/man3/Astro::FITS::CFITSIO.3pm*
