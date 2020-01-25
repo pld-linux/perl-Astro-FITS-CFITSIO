@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests	# don't perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define		pdir	Astro
 %define		pnam	FITS-CFITSIO
 Summary:	Astro::FITS::CFITSIO - Perl extension for using the cfitsio library
