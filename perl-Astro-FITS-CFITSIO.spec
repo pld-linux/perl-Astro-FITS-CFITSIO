@@ -1,25 +1,29 @@
 #
 # Conditional build:
-%bcond_without	tests	# don't perform "make test"
+%bcond_without	tests	# unit tests
 #
 %define		pdir	Astro
 %define		pnam	FITS-CFITSIO
 Summary:	Astro::FITS::CFITSIO - Perl extension for using the cfitsio library
 Summary(pl.UTF-8):	Astro::FITS::CFITSIO - rozszerzenie Perla do korzystania z biblioteki cfitsio
 Name:		perl-Astro-FITS-CFITSIO
-Version:	1.15
-Release:	6
+Version:	1.18
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Astro/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	b192177a6756655c74361d766ba43cbc
-URL:		https://metacpan.org/release/Astro-FITS-CFITSIO
-BuildRequires:	cfitsio-devel >= 3.480
+Source0:	https://www.cpan.org/modules/by-module/Astro/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	4dc47398fe2ef23e0a2f3fbd9c16d681
+URL:		https://metacpan.org/dist/Astro-FITS-CFITSIO
+BuildRequires:	perl-Alien-CFITSIO >= 4.3.0
 BuildRequires:	perl-ExtUtils-PkgConfig
 BuildRequires:	perl-devel >= 1:5.8.0
+%if %{with tests}
+BuildRequires:	perl-Test2-Suite
+%endif
 BuildRequires:	rpm-perlprov >= 4.1-13
-Requires:	cfitsio >= 3.480
+BuildRequires:	rpmbuild(macros) >= 1.745
+Requires:	cfitsio >= 4.3.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -68,7 +72,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-install examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+cp -pr examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
