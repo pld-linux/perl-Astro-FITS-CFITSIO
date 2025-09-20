@@ -15,8 +15,8 @@ Group:		Development/Languages/Perl
 Source0:	https://www.cpan.org/modules/by-module/Astro/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	4dc47398fe2ef23e0a2f3fbd9c16d681
 URL:		https://metacpan.org/dist/Astro-FITS-CFITSIO
+BuildRequires:	perl-Alien-Base
 BuildRequires:	perl-Alien-CFITSIO >= 4.3.0
-BuildRequires:	perl-ExtUtils-PkgConfig
 BuildRequires:	perl-devel >= 1:5.8.0
 %if %{with tests}
 BuildRequires:	perl-Test2-Suite
